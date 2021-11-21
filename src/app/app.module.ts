@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './app/area-not-logged/components/login/login.component';
+import { LoginComponent } from './area-not-logged/components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { LoginComponent } from './app/area-not-logged/components/login/login.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

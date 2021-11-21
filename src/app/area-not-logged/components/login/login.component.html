@@ -1,0 +1,39 @@
+<!-- Animation dragon -->
+<div class="page-container">
+  <div id="skyDragon"></div>
+</div>
+
+<!-- Background and form -->
+<div class="background">
+  <img class="wave" src="../../../../../assets/images/cloud-ef.gif"/>
+  <div class="container">
+    <div class="img">
+    </div>
+    <div class="login-content">
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
+        <img src="../../../../../assets/images/logo-dragon.png"/>
+        <h2 class="title">Bem Vindo</h2>
+        <div class="input-div one">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="div">
+            <h5>Usuário</h5>
+            <input type="text" class="input" formControlName="UserName"/>
+          </div>
+        </div>
+        <div class="input-div pass">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <h5>Senha</h5>
+            <input type="password" class="input" formControlName="Password?"/>
+          </div>
+        </div>
+        <!-- <a href="#">Forgot Password?</a> -->
+        <button type="submit" class="btn" value="Login">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
