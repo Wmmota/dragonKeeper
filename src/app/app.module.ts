@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { AreaNotLoggedModule } from './area-not-logged/area-not-logged.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
