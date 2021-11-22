@@ -1,0 +1,279 @@
+body {
+    font-family: 'lato', sans-serif;
+  }
+  .container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+    small {
+      font-size: 0.5em;
+    }
+  }
+  
+  .responsive-table {
+    li {
+      border-radius: 3px;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+    .table-header {
+      background-color: #95A5A6;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .table-row {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    }
+    .col-1 {
+      flex-basis: 10%;
+    }
+    .col-2 {
+      flex-basis: 40%;
+    }
+    .col-3 {
+      flex-basis: 25%;
+    }
+    .col-4 {
+      flex-basis: 25%;
+    }
+    
+    @media all and (max-width: 767px) {
+      .table-header {
+        display: none;
+      }
+
+      li {
+        display: block;
+      }
+      .col {
+        
+        flex-basis: 100%;
+        
+      }
+      .col {
+        display: flex;
+        padding: 10px 0;
+        &:before {
+          color: #6C7A89;
+          padding-right: 10px;
+          content: attr(data-label);
+          flex-basis: 50%;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  $color-button-red: #e74c3c;
+$color-button-green: #2ecc71;
+$color-button-blue: #3498db;
+
+$color-text: #ecf0f1;
+
+$font-family: Arial, helvetica, sans-serif;
+$font-size: 100%;
+
+// global style
+
+body {
+	font-size: $font-size;
+	font-family: $font-family;
+}
+
+.wrapper {
+	width: 720px;
+ 	margin: 45px auto; 
+	h1 {
+		font-size: $font-size + 180%;
+		text-align: center;
+		text-transform: uppercase; 
+	}
+	p {
+		font-size: $font-size + 50%;
+		text-align: center;
+		text-transform: uppercase; 
+	}
+	.btn-groups {
+		width: 640px;
+		margin: 0 auto;
+	}
+}
+
+// button --tr
+
+.btn-red-tr, .btn-green-tr, .btn-blue-tr {
+	min-width: 130px;
+	position: relative;
+	display: inline-block;
+
+	text-align: center;
+	text-transform: uppercase; 
+
+	padding: 15px;
+	margin: 30px 25px;
+
+	font-size: $font-size + 40%;
+	font-weight: 600;
+
+	color: $color-text;
+
+	transition: 0.5s;
+}
+
+.btn-red-tr { background-color: $color-button-red; }
+.btn-green-tr { background-color: $color-button-green; }
+.btn-blue-tr { background-color: $color-button-blue; }
+
+.btn-red-tr:before {
+	position: absolute;
+	content:"";
+	border-top: 5px solid lighten($color-button-red, 5%);
+	border-left: 5px solid lighten($color-button-red, 5%);	
+	border-right: 5px solid darken($color-button-red, 5%);
+	border-bottom: 5px solid darken($color-button-red, 5%);
+
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;	
+
+  transition: 0.5s;
+
+}
+
+.btn-green-tr:before {
+	position: absolute;
+	content:"";
+	border-top: 5px solid lighten($color-button-green, 5%);
+	border-left: 5px solid lighten($color-button-green, 5%);	
+	border-right: 5px solid darken($color-button-green, 5%);
+	border-bottom: 5px solid darken($color-button-green, 5%);
+
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;	
+
+  transition: 0.5s;
+
+}
+
+.btn-blue-tr:before {
+	position: absolute;
+	content:"";
+	border-top: 5px solid lighten($color-button-blue, 5%);
+	border-left: 5px solid lighten($color-button-blue, 5%);	
+	border-right: 5px solid darken($color-button-blue, 5%);
+	border-bottom: 5px solid darken($color-button-blue, 5%);
+
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;	
+
+  transition: 0.5s;
+
+}
+
+.btn-red-tr:hover {
+	box-shadow: 7px 7px darken($color-button-red, 20%), -7px -7px lighten($color-button-red, 20%);
+	cursor: pointer;
+		&::before {
+		border: 0px ;
+	}
+}
+
+.btn-green-tr:hover {
+	box-shadow: 7px 7px darken($color-button-green, 20%), -7px -7px lighten($color-button-green, 20%);
+	cursor: pointer;
+		&::before {
+		border: 0px ;
+	}
+}
+
+.btn-blue-tr:hover {
+	box-shadow: 7px 7px darken($color-button-blue, 20%), -7px -7px lighten($color-button-blue, 20%);
+	cursor: pointer;
+	&::before {
+		border: 0px ;
+	}
+}
+
+// button --qa
+
+.btn-red-qa, .btn-green-qa, .btn-blue-qa {
+	min-width: 120px;
+	position: relative;
+	display: inline-block;
+
+	text-align: center;
+	text-transform: uppercase; 
+
+	padding: 10px 15px;
+	margin: 30px 25px;
+
+	font-size: $font-size + 40%;
+	font-weight: 600;
+
+	transition: 0.5s;
+}
+
+.btn-red-qa { border: 5px solid $color-button-red; color: $color-button-red;}
+.btn-green-qa { border: 5px solid $color-button-green; color: $color-button-green; }
+.btn-blue-qa { border: 5px solid $color-button-blue; color: $color-button-blue; }
+
+.btn-red-qa:hover {
+	
+	cursor: pointer;
+		&::before {
+		border: 0px ;
+	}
+}
+
+.btn-green-qa:hover {
+	
+	cursor: pointer;
+		&::before {
+		border: 0px ;
+	}
+}
+
+.btn-blue-qa:hover {
+	background-color: darken($color-button-blue, 5%);
+	border: 5px solid lighten($color-button-blue, 5%);
+	color: $color-text;
+
+	cursor: pointer;
+}
+
+.btn-red-qa:hover {
+	background-color: darken($color-button-red, 5%);
+	border: 5px solid lighten($color-button-red, 5%);
+	color: $color-text;
+
+	cursor: pointer;
+}
+
+.btn-green-qa:hover {
+	background-color: darken($color-button-green, 5%);
+	border: 5px solid lighten($color-button-green, 5%);
+	color: $color-text;
+
+	cursor: pointer;
+}
+
+.align{
+    text-align: center;
+}

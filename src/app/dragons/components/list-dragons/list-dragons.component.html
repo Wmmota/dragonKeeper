@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Lista de dragões</h2>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Id</div>
+      <div class="col col-2">Nome</div>
+      <div class="col col-4">Tipo</div>
+      <div class="col col-3">Data de criação</div>
+      <div class="col col-1">Ações</div>
+    </li>
+    <div *ngIf="dragonsList.length">
+      <li class="table-row" *ngFor="let dragon of dragonsList">
+        <div
+          class="col col-1"
+          data-label="Id"
+          (click)="redirectShowDetailsDragon(dragon.id)"
+        >
+          {{ dragon.id }}
+        </div>
+        <div
+          class="col col-2"
+          data-label="Dragon name"
+          (click)="redirectShowDetailsDragon(dragon.id)"
+        >
+          {{ dragon.name }}
+        </div>
+        <div
+          class="col col-3"
+          data-label="Tipo de dragão"
+          (click)="redirectShowDetailsDragon(dragon.id)"
+        >
+          {{ dragon.type }}
+        </div>
+        <div
+          class="col col-4"
+          data-label="Data de criação"
+          (click)="redirectShowDetailsDragon(dragon.id)"
+        >
+          {{ dragon.createdAt }}
+        </div>
+        <div class="btn-blue-tr" (click)="redirectEditDragon(dragon.id)">
+          Editar dragão
+        </div>
+        <div class="btn-red-tr" (click)="deleteDragon(dragon.id)">
+          Deletar dragão
+        </div>
+      </li>
+    </div>
+  </ul>
+  <div class="align">
+    <button (click)="redirectCreateDragon()" class="btn-blue-tr">
+      Adicionar dragão
+    </button>
+    <button (click)="logout()" class="btn-blue-tr">Deslogar</button>
+  </div>
+</div>

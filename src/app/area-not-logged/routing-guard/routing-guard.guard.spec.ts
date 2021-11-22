@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GuardGuard } from './guard.guard';
+import { RoutingGuard } from './routing-guard.guard';
 
 describe('GuardGuard', () => {
-  let guard: GuardGuard;
+  let guard: RoutingGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(GuardGuard);
+    guard = TestBed.inject(RoutingGuard);
   });
 
   it('should be created', () => {

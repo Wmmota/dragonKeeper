@@ -1,0 +1,45 @@
+<div class="background">
+    <img class="wave" src="../../../../assets/images/fundo-dragao.jpg" />
+
+<div id="container">
+  <h1>Cadastre seu dragão</h1>
+  <form [formGroup]="createDragonForm" (ngSubmit)="submitCreateDragon()">
+    <div>
+      <input
+        class="input-dragon"
+        type="text"
+        name="name"
+        placeholder="Nome do dragão"
+        formControlName="name"
+        [ngClass]="{
+          error: isSubmitted && createDragonForm.controls.name.errors
+        }"
+      />
+      <div class="error">
+        <span *ngIf="isSubmitted && createDragonForm.controls.name.errors">
+          Campo obrigatório
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="input-dragon"
+        name="type"
+        placeholder="Tipo do dragão"
+        formControlName="type"
+        [ngClass]="{
+          error: isSubmitted && createDragonForm.controls.type.errors
+        }"
+      />
+      <div class="error">
+        <span *ngIf="isSubmitted && createDragonForm.controls.type.errors">
+          Campo obrigatório
+        </span>
+      </div>
+    </div>
+    <button type="submit" class="btn" value="Login">Enviar</button>
+  </form>
+</div>
+</div>
