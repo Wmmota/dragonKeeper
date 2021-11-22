@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert/alert.service';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private alert: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -33,10 +35,7 @@ export class LoginComponent implements OnInit {
        this.router.navigateByUrl('/dragons');
       },
       (error) => {
-        this.errorMessage =
-          error && error.message
-            ? error.message
-            : 'Houve um erro ao tentar se logar';
+        this.alert.error('', error.message);
       }
     );
   }
