@@ -9,6 +9,7 @@ import { EditDragonComponent } from './components/edit-dragon/edit-dragon.compon
 import { DragonDetailsComponent } from './components/dragon-details/dragon-details.component';
 import { DragonDetailsResolver } from './resolvers/dragon-details.resolver';
 import { RoutingGuard } from '../area-not-logged/routing-guard/routing-guard.guard';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 const routes = [
@@ -53,7 +54,8 @@ const routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class DragonsModule { }

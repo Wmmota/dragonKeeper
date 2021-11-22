@@ -15,6 +15,7 @@ export class ListDragonsComponent implements OnInit {
 
   dragonsList: Array<DragonInterface> = [];
   listErrorMessage: string = '';
+  public paginaAtual = 1;
 
   constructor(
     private dragonService: DragonService,

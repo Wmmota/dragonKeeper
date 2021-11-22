@@ -1,33 +1,64 @@
 <div class="container">
   <h2>Lista de dragões</h2>
-<div class="table-wrapper">
-    <table class="fl-table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Tipo</th>
-            <th>Data de criação</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let dragon of dragonsList">
-            <td (click)="redirectShowDetailsDragon(dragon.id)"> {{ dragon.id }}</td>
-            <td (click)="redirectShowDetailsDragon(dragon.id)"> {{ dragon.name }}</td>
-            <td (click)="redirectShowDetailsDragon(dragon.id)"> {{ dragon.type }}</td>
-            <td (click)="redirectShowDetailsDragon(dragon.id)" class="cursor-pointer">{{dragon.createdAt | date : 'dd/MM/yyyy HH:mm:ss'}}</td>
-            <td>
-              <button class="cursor-pointer" (click)="deleteDragon(dragon.id)">Remover</button>&nbsp;
-              <button class="cursor-pointer" (click)="redirectEditDragon(dragon.id)">Editar</button>
-          </td>
-        </tr>
-                <tbody>
-    </table>
-</div>
-<div class="align">
-  <button (click)="redirectCreateDragon()" class="btn-blue-tr">
-    Adicionar dragão
-  </button>
-  <button (click)="logout()" class="btn-blue-tr">Deslogar</button>
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Data de criação</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let dragon of dragonsList
+            | paginate: { itemsPerPage: 10, currentPage: paginaAtual };
+          let i = index
+        "
+      >
+        <td (click)="redirectShowDetailsDragon(dragon.id)">
+          {{ dragon.id }}
+        </td>
+        <td (click)="redirectShowDetailsDragon(dragon.id)">
+          {{ dragon.name }}
+        </td>
+        <td (click)="redirectShowDetailsDragon(dragon.id)">
+          {{ dragon.type }}
+        </td>
+        <td
+          (click)="redirectShowDetailsDragon(dragon.id)"
+          class="cursor-pointer"
+        >
+          {{ dragon.createdAt | date: "dd/MM/yyyy HH:mm:ss" }}
+        </td>
+        <td>
+          <button class="cursor-pointer" (click)="deleteDragon(dragon.id)">
+            Remover</button
+          >&nbsp;
+          <button
+            class="cursor-pointer"
+            (click)="redirectEditDragon(dragon.id)"
+          >
+            Editar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <pagination-controls
+        (pageChange)="paginaAtual = $event"
+        previousLabel="Anterior"
+        nextLabel="Próximo"
+      ></pagination-controls>
+    </tbody>
+  </table>
+  <div class="align">
+    <button (click)="redirectCreateDragon()" class="btn-blue-tr">
+      Adicionar dragão
+    </button>
+    <button (click)="logout()" class="btn-blue-tr">Deslogar</button>
+  </div>
 </div>
