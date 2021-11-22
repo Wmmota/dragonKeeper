@@ -4,6 +4,7 @@ import { DragonService } from '../../services/dragon.service';
 import { finalize } from 'rxjs/operators';
 import { LoginService } from 'src/app/area-not-logged/services/login.service';
 import { DragonInterface } from '../../models/dragon-interface';
+import { AlertService } from 'src/app/shared/services/alert/alert.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ListDragonsComponent implements OnInit {
   constructor(
     private dragonService: DragonService,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private alert: AlertService
     ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class ListDragonsComponent implements OnInit {
     .subscribe((response)=>{
       this.dragonsList = response;
     }, (error)=>{
-      this.listErrorMessage = (error && error.message) ? error.message : 'Houve um problema ao obter os dragões.';
+      this.alert.error('', error.message);
     })
 }
 
@@ -46,16 +48,12 @@ export class ListDragonsComponent implements OnInit {
 
   deleteDragon(dragonId: string) {
     this.dragonService.deleteDragon(dragonId)
-    .pipe(
-      finalize(() => {
-      })
-    )
     .subscribe({
       next: () => {
         this.removeDragonFromArray(dragonId);
       },
       error: error => {
-        this.listErrorMessage = (error && error.message) ? error.message : 'Houve um problema ao tentar remover o dragão.';
+      this.alert.error('', error.message);
       },
     });
   }

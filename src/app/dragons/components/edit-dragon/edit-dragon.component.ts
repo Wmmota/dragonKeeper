@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
+import { AlertService } from 'src/app/shared/services/alert/alert.service';
 import { DragonInterface } from '../../models/dragon-interface';
 import { DragonService } from '../../services/dragon.service';
 
@@ -22,6 +23,7 @@ export class EditDragonComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private dragonService: DragonService,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -58,7 +60,7 @@ export class EditDragonComponent implements OnInit {
           this.router.navigateByUrl('/dragons');
         },
         error: error => {
-          this.editDragonErrorMessage = (error && error.message)? error.message : 'Ocorreu um erro ao tentar editar o dragão';
+          this.alert.error('', error.message);
         },
       });
 
