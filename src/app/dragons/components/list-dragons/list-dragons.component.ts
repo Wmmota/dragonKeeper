@@ -34,7 +34,7 @@ export class ListDragonsComponent implements OnInit {
     .subscribe((response)=>{
       this.dragonsList = response;
     }, (error)=>{
-      this.alert.error('', error.message);
+      this.alert.error('Error ao buscar lista de dragões', error.message);
     })
 }
 
@@ -53,7 +53,7 @@ export class ListDragonsComponent implements OnInit {
         this.removeDragonFromArray(dragonId);
       },
       error: error => {
-      this.alert.error('', error.message);
+      this.alert.error('Erro ao deletar dragão', error.message);
       },
     });
   }

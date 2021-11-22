@@ -60,7 +60,7 @@ export class EditDragonComponent implements OnInit {
           this.router.navigateByUrl('/dragons');
         },
         error: error => {
-          this.alert.error('', error.message);
+          this.alert.error('Erro ao editar dragão', error.message);
         },
       });
 

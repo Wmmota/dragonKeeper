@@ -52,7 +52,8 @@ export class CreateDragonComponent implements OnInit {
           this.router.navigateByUrl('/dragons');
         },
         error: error => {
-          this.alert.error('', error.message);
+          console.log(error)
+          this.alert.error('Erro ao criar dragão', error.message);
         },
       });
 
