@@ -1,14 +1,36 @@
-<div class="card">
-    <div class="card__content">
-        <div class="card__content__generic">
-            <button class="button cursor-pointer" [routerLink]="['/dragons']">Retornar para listagem</button>
-            <h1>Detalhes do dragão</h1>
-            <ul>
-                <li><b>Nome:</b> {{dragon.name}}</li>
-                <li><b>Tipo:</b> {{dragon.type}}</li>
-                <li><b>Data de criação:</b> {{dragon.createdAt | date : 'dd/MM/yyyy HH:mm:ss'}}</li>
-            </ul>
-        </div>
+
+
+<div class="container">
+    <h2>Detalhes do dragão</h2>
+    <table class="fl-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Data de criação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            {{ dragon.id }}
+          </td>
+          <td>
+            {{ dragon.name }}
+          </td>
+          <td>
+            {{ dragon.type }}
+          </td>
+          <td>
+            {{ dragon.createdAt | date: "dd/MM/yyyy HH:mm:ss" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="align">
+        <button class="btn" [routerLink]="['/dragons']">Retornar para listagem</button>
     </div>
-</div>
+  </div>
+  
 

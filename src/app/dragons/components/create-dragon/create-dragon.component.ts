@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
+import { AlertService } from 'src/app/shared/services/alert/alert.service';
 import { DragonInterface } from '../../models/dragon-interface';
 import { DragonService } from '../../services/dragon.service';
 
@@ -20,6 +21,7 @@ export class CreateDragonComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dragonService: DragonService,
     private router: Router,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -42,20 +44,15 @@ export class CreateDragonComponent implements OnInit {
       return;
     }
 
-    //set createdAt in dragon in the form
     this.createDragonForm.controls.createdAt.setValue((new Date()).toISOString())
 
     this.dragonService.createDragon(this.createDragonForm.value)
-      .pipe(
-        finalize(() => {
-        })
-      )
       .subscribe({
         next: event => {
           this.router.navigateByUrl('/dragons');
         },
         error: error => {
-          this.createDragonErrorMessage = (error && error.message)? error.message : 'Ocorreu um erro ao tentar cadastrar o dragão';
+          this.alert.error('', error.message);
         },
       });
 
