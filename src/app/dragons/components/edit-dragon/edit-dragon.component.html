@@ -1,38 +1,45 @@
-<div class="card">
-    <div class="card__content">
-        <form [formGroup]="editDragonForm" (ngSubmit)="submitEditDragon()">
-            <label for="name">Insira o nome do dragão</label>
-            <div class="form-imput">
-                <input type="text" name="name" placeholder="Nome do dragão" formControlName="name"
-                [ngClass]="{ 'error': isSubmitted && editDragonForm.controls.name.errors }" />
-                <div class="input-error">
-                    <span *ngIf="isSubmitted && editDragonForm.controls.name.errors">
-                        Campo obrigatório
-                    </span>
-                </div>
-            </div>
+<div class="background">
+    <img class="wave" src="../../../../assets/images/fundo-dragao.jpg" />
 
-            <label for="type">Insira o tipo do dragão</label>
-            <div class="form-imput">
-                <input type="text" name="type" placeholder="Tipo do dragão" formControlName="type"
-                [ngClass]="{ 'error': isSubmitted && editDragonForm.controls.type.errors }" />
-                <div class="input-error">
-                    <span *ngIf="isSubmitted && editDragonForm.controls.type.errors">
-                        Campo obrigatório
-                    </span>
-                </div>
-            </div>
-
-
-            <div class="login-component__box__login-Form__text">
-                <span *ngIf="!!editDragonErrorMessage" class="login-component__box__login-Form__text--error">
-                    {{[editDragonErrorMessage]}}
-                </span>
-            </div>
-
-            <div class="centered">
-                <button type="submit" class="button success">Enviar</button>
-            </div>
-        </form>
+<div id="container">
+  <h1>Edite seu dragão</h1>
+  <form [formGroup]="editDragonForm" (ngSubmit)="submitEditDragon()">
+    <div>
+      <input
+        class="input-dragon"
+        type="text"
+        name="name"
+        placeholder="Nome do dragão"
+        formControlName="name"
+        [ngClass]="{
+          error: isSubmitted && editDragonForm.controls.name.errors
+        }"
+      />
+      <div class="error">
+        <span *ngIf="isSubmitted && editDragonForm.controls.name.errors">
+          Campo obrigatório
+        </span>
+      </div>
     </div>
+
+    <div>
+      <input
+        type="text"
+        class="input-dragon"
+        name="type"
+        placeholder="Tipo do dragão"
+        formControlName="type"
+        [ngClass]="{
+          error: isSubmitted && editDragonForm.controls.type.errors
+        }"
+      />
+      <div class="error">
+        <span *ngIf="isSubmitted && editDragonForm.controls.type.errors">
+          Campo obrigatório
+        </span>
+      </div>
+    </div>
+    <button type="submit" class="btn" value="Login">Enviar</button>
+  </form>
+</div>
 </div>
